@@ -1,4 +1,4 @@
-import UserComponent from "./TheUserComponent.js";
+import UserComponent from './TheUserComponent.js';
 
 export default {
     name: "TheAllUsersComponent",

@@ -63,7 +63,7 @@ export default {
                     }
                 })
                 .catch((err) => console.error(err));
-            }else {
+            } else {
                 console.log('A username and password needs to be input');
             }
          }            
