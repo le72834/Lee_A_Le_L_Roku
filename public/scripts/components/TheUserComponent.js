@@ -5,13 +5,13 @@ export default {
 
     template: `
     <section class="col-xs-12 col-sm-6 col-md-4 mx-auto">
-        <div class="card rounded" @click="navToHome">
+        <div class="card rounded" @click="navToHome()">
             <div class="card-body text-center">
                 <img :src="'images/' + liveuser.user_avatar" class="rounded-circle img-fluid">
                 <p>{{ liveuser.user_name }}</p>
             </div>
         </div>
-</section>`,
+    </section>`,
 
     created: function() {
         // check if there's an avatar
@@ -23,8 +23,10 @@ export default {
 
     methods: {
         navToHome() {
+           
+            this.$router.push({name: "home", params: { currentuser: this.liveuser}})
+
             window.localStorage.setItem('cacheduser', JSON.stringify(this.liveuser));
-            this.$router.push({name: "home", params: {currentuser: this.liveuser}})
         }
     }
 }
