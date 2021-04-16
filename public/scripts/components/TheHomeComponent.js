@@ -81,7 +81,7 @@ export default {
 
             retrievedMedia: [],
             currentMediaDetails: {},
-            allRetrievedVideo: []
+            //allRetrievedVideo: []
            
         }
     },
@@ -89,7 +89,7 @@ export default {
     created: function() {
         this.loadMedia(null, 'movies');
         this.$emit('setuser', this.currentuser);
-        this.retrieveVideoContent();
+        //this.retrieveVideoContent();
         
     },
 
@@ -109,33 +109,33 @@ export default {
         switchCurrentMedia(media) {
             this.currentMediaDetails = media;
         },
-        filterMedia(filter) {
-            let url=`./admin/index.php?media=movies&filter=${filter}`;
-            fetch(url)
-            .then(res =>res.json())
-            .then(data => {
-                this.allRetrievedVideo = data;
-                this.currentMediaDetails = data[0];
-            })
-        },
-        retrieveVideoContent() {
-            if(localStorage.getItem("cachedVideo")){
-                this.allRetrievedVideo = JSON.parse(localStorage.getItem("cachedVideo"));
-                this.currentMediaDetails = this.allRetrievedVideo[0];
-            }else {
-                let url = './admin/index.php?media=movies';
-                fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    localStorage.setItem("cachedVideo", JSON.stringify(data));
-                    this.allRetrievedVideo = data;
-                    this.currentMediaDetails = data[0];
-                })
-            }
-        },
-        loadMovie(movie){
-            this.currentMediaDetails = movie;
-        },
+        // filterMedia(filter) {
+        //     let url=`./admin/index.php?media=movies&filter=${filter}`;
+        //     fetch(url)
+        //     .then(res =>res.json())
+        //     .then(data => {
+        //         this.allRetrievedVideo = data;
+        //         this.currentMediaDetails = data[0];
+        //     })
+        // },
+        // retrieveVideoContent() {
+        //     if(localStorage.getItem("cachedVideo")){
+        //         this.allRetrievedVideo = JSON.parse(localStorage.getItem("cachedVideo"));
+        //         this.currentMediaDetails = this.allRetrievedVideo[0];
+        //     }else {
+        //         let url = './admin/index.php?media=movies';
+        //         fetch(url)
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             localStorage.setItem("cachedVideo", JSON.stringify(data));
+        //             this.allRetrievedVideo = data;
+        //             this.currentMediaDetails = data[0];
+        //         })
+        //     }
+        // },
+        // loadMovie(movie){
+        //     this.currentMediaDetails = movie;
+        // },
         
     },
     components: {
