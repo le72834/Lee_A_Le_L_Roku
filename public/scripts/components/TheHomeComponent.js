@@ -1,3 +1,5 @@
+import AudioComponent from './TheAudioComponent.js';
+import TheMovieThumbnail from './TheMovieThumbnailComponent.js';
 export default {
     name: "TheHomeComponent",
 
@@ -21,21 +23,24 @@ export default {
         <div class="row"> <!-- 2-up for nav and media info -->
             <nav class="col-12 col-sm-3 side-nav">
                 <ul class="media-type">
-                    <li v-for="media in mediaTypes" :data-type="media.description">
+                    <!-- <li v-for="media in mediaTypes" :data-type="media.description">
                         <span>
                             <i v-bind:class="[media.iconClass]"></i>
                         </span>
                         
-                        <span class="d-none d-md-block">{{ media.description }}</span>
-                    </li>
+                        <span class="d-none d-md-block">{{ media.description }}</span> -->
+                        <router-link to="/audios"><span><i class="fas fa-headphones"></i>Audio</span></router-link>
+                        
+                    <!-- </li> -->
                 </ul>
             </nav>
-
+        
             <div class="col-12 col-sm-9 media-info">
                 <!-- genres for video -->
+               
                 <ul class="media-genres">
                     <li>
-                        <a href="action">Action</a>
+                        <a href="" @click.prevent="filterMedia('Action', $event)" >Action</a>
                     </li>
                     <li>
                         <a href="comedy">Comedy</a>
@@ -50,6 +55,9 @@ export default {
                         <a href="all">All</a>
                     </li>
                 </ul>
+               
+                
+
 
                 <div class="thumb-wrapper clearfix">
                     <img v-for="media in retrievedMedia" :src="'images/video/' + media.movies_cover" alt="media thumb" class="img-thumbnail rounded float-left media-thumb" @click="switchCurrentMedia(media)">
@@ -65,19 +73,24 @@ export default {
             currentMediaDetails: {},
 
             // could add more media types here in future
-            mediaTypes: [
-                { iconClass: "fas fa-headphones", description: "audio" },
-                { iconClass: "fas fa-film", description: "video" },
-                { iconClass: "fas fa-tv", description: "television" }
-            ],
+            // mediaTypes: [
+            //     { iconClass: "fas fa-headphones", description: "audio" },
+            //     { iconClass: "fas fa-film", description: "video" },
+            //     { iconClass: "fas fa-tv", description: "television" }
+            // ],
 
             retrievedMedia: [],
+            currentMediaDetails: {},
+            allRetrievedVideo: []
+           
         }
     },
 
     created: function() {
         this.loadMedia(null, 'movies');
         this.$emit('setuser', this.currentuser);
+        this.retrieveVideoContent();
+        
     },
 
     methods: {
@@ -95,6 +108,38 @@ export default {
         },
         switchCurrentMedia(media) {
             this.currentMediaDetails = media;
-        }
-    }
+        },
+        filterMedia(filter) {
+            let url=`./admin/index.php?media=movies&filter=${filter}`;
+            fetch(url)
+            .then(res =>res.json())
+            .then(data => {
+                this.allRetrievedVideo = data;
+                this.currentMediaDetails = data[0];
+            })
+        },
+        retrieveVideoContent() {
+            if(localStorage.getItem("cachedVideo")){
+                this.allRetrievedVideo = JSON.parse(localStorage.getItem("cachedVideo"));
+                this.currentMediaDetails = this.allRetrievedVideo[0];
+            }else {
+                let url = './admin/index.php?media=movies';
+                fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    localStorage.setItem("cachedVideo", JSON.stringify(data));
+                    this.allRetrievedVideo = data;
+                    this.currentMediaDetails = data[0];
+                })
+            }
+        },
+        loadMovie(movie){
+            this.currentMediaDetails = movie;
+        },
+        
+    },
+    components: {
+        //moviethumb: TheMovieThumbnail,
+        audiothumb: AudioComponent
+    },
 }
