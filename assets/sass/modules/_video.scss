@@ -1,0 +1,43 @@
+.fs-video {
+    width: 100%;
+}
+.movie-con {
+    margin-top: 70px;
+}
+@media screen and (min-width: 1000px) {
+    .movie-con {
+        margin-top: 100px;
+    }
+    .music-con {
+        margin-top: 100px;
+        img {
+            margin-left: 20px;
+           width: 50%;
+           margin-bottom: 20px;
+           border-radius: 10px;
+        }
+        
+    }
+    .music-pic {
+        img {
+            width: 95%;
+        }
+    }
+    .movie2 {
+        img{
+            width: 95%;
+        }
+    }
+    .music-info{
+        width: 80%;
+        margin-top: 100px;
+        audio {
+            width: 70%;
+        }
+    }
+    .music-box {
+        display: flex;
+        flex-direction: row;
+        
+    }
+}
