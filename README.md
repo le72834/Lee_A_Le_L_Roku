@@ -16,6 +16,6 @@ Please look at the Document to see more detail information about how this webist
 ## Developer Notes
 If you don't know what any of steps of JavaScript, start here: [Roadmap Document](https://docs.google.com/document/d/14P9FuZTZHmYqgmW1jHsBhH7-ZLxbQzaZThaJ0uSiazo/edit)
 ## Credits
-Anson Lee
+Anson Lee, Linh Le
 ## License
 MIT
