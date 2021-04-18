@@ -12,6 +12,13 @@ export default {
                 </ul>
             </div>
         </div>
+        <div class="hero">
+                <img src="images/hero_music.jpeg" alt="movie">
+                <div class="hero-text">
+                <h2>Welcome to Roku Flashback!</h2>
+                <p>You are now in audio page!</p>
+                </div>
+            </div>
         <div class="music-box">
             <div class="music-con">
                     <img :src="'images/audio/' + currentMediaDetails.poster">
@@ -20,7 +27,7 @@ export default {
                 <div class="music-info">
                     <h4 >{{currentMediaDetails.title}}</h4>
                     <p >{{currentMediaDetails.artist}}</p>
-                    <audio autoplay controls muted :src="'audio/' + currentMediaDetails.audiosrc" class="fs-video"></audio>
+                    <audio controls muted :src="'audio/' + currentMediaDetails.audiosrc" class="fs-video"></audio>
                     
                 </div>
         </div>

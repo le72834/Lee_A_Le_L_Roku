@@ -23,9 +23,9 @@ export default {
 
     methods: {
         navToHome() {
-           if(this.liveuser.user_avatar == 'hermione.jpg') {
-            this.$router.push({name: "kids", params: { currentuser: this.liveuser}})
-           }
+        //    if(this.liveuser.user_avatar == 'hermione.jpg') {
+        //     this.$router.push({name: "kids", params: { currentuser: this.liveuser}})
+        //    }
             this.$router.push({name: "home", params: { currentuser: this.liveuser}})
 
             window.localStorage.setItem('cacheduser', JSON.stringify(this.liveuser));

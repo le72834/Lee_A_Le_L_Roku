@@ -4,9 +4,49 @@
 .movie-con {
     margin-top: 70px;
 }
+.hero {
+    margin-top: 60px;
+    img {
+        width: 100%;
+    }
+    .hero-text {
+        position: absolute;
+        top: 20%;
+        z-index: 1;
+        left: 7%;
+        text-shadow: 1px 1px black;
+    }
+}
+.media-info {
+    ul {
+        list-style-type: none;
+        li {
+            display: inline;
+            a {
+                color: white;
+                background-color: #B698E2;
+                padding: 8px;
+                border-radius: 10px;
+                text-decoration: none;
+                &:hover {
+                    background-color: gray;
+                }
+            }
+           
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .hero-text {
+        left: 10%;
+    }
+}
 @media screen and (min-width: 1000px) {
     .movie-con {
         margin-top: 100px;
+        .movie-text {
+            margin-top: 50px;
+        }
     }
     .music-con {
         margin-top: 100px;
@@ -19,11 +59,13 @@
         
     }
     .music-pic {
+        
         img {
             width: 95%;
         }
     }
     .movie2 {
+        margin-left: 70px;
         img{
             width: 95%;
         }
@@ -40,4 +82,40 @@
         flex-direction: row;
         
     }
+    .media-info {
+        ul {
+            list-style-type: none;
+            li {
+                display: inline;
+                a {
+                    color: white;
+                    background-color: #B698E2;
+                    padding: 8px;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    &:hover {
+                        background-color: gray;
+                    }
+                }
+               
+            }
+        }
+    }
+    .hero {
+        img {
+            height: 40%;
+        }
+        .hero-text {
+            h2 {
+                font-size: 35px;
+            }
+            p {
+                font-size: 20px;
+            }
+            position: absolute;
+            top: 40%;
+            left: 15%;
+        }
+    }
+    
 }
