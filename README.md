@@ -1,7 +1,7 @@
 # ROKU flashback Project
 This is a web page for visitors to check out TV Shows, Movies and Musics. Visitors can switch to the content they are wishing to see by clicking the link in the Nav bar. After they have clicked the posters they will be directed to specific page that has "Comedy", "Action" and "Family" categories.  Download the file to checkout further information and functions. 
 
-Click on the link to see our website styleframes: [XD File Styleframes](https://xd.adobe.com/view/64c2562e-5775-4a87-797a-e11564695844-12f3/)
+Click on the link to see our website styleframes: [XD File Styleframes](https://xd.adobe.com/view/c9caf7c6-c31c-4cba-719d-2fe5ec16784b-bffb/)
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
