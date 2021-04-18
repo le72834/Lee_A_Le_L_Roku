@@ -1,0 +1,64 @@
+
+.nav-link {
+  color: rgb(95, 78, 94);
+  font-weight: bold;
+  left: 15%;
+  top: 20px;
+  
+  
+  ul {
+    list-style-type: none;
+    
+   li {
+     display: inline;
+     padding-right: 10px;
+     
+   }
+  }
+  
+}
+  .hero-img {
+    margin-top: 70px;
+      img {
+        width: 100%;
+      }
+      
+  }
+  .slider {
+    h2 {
+      margin-top: 20px;
+      text-align: center;
+    font-size: 20px;
+    }
+    
+  }
+  @media screen and (min-width: 768px) {
+    .thumb-wrapper{
+      display: grid;
+      grid-template-columns: 220px 220px 220px;
+      img {
+        width: 100%;
+        
+        margin: 20px;
+      }
+
+    }
+  }
+ @media screen and (min-width: 1000px) {
+    .hero-img {
+      .home-info {
+        margin-top: 80px;
+      }
+    }
+    .thumb-wrapper{
+      display: grid;
+      grid-template-columns: 320px 320px 320px;
+      img {
+        width: 100%;
+        
+        margin: 20px;
+      }
+
+    }
+ } 
+  

@@ -2,6 +2,9 @@ import LoginComponent from './components/TheLoginComponent.js';
 import AllUsers from './components/TheAllUsersComponent.js';
 import HomeComponent from './components/TheHomeComponent.js';
 import AudioComponent from './components/TheAudioComponent.js';
+import MovieThumbnail from './components/TheMovieThumbnailComponent.js';
+import TVComponent from './components/TVComponent.js';
+
 
 const router = new VueRouter ({
     routes: [
@@ -16,7 +19,10 @@ const router = new VueRouter ({
         
         {path: '/users', name: 'users', component: AllUsers},
         {path: '/home', name: 'home', component: HomeComponent, props: true},
-        {path: '/audios', name: 'audios', component: AudioComponent, props: true}
+        {path: '/audios', name: 'audios', component: AudioComponent, props: true},
+        {path: '/allmovies', name: 'allmovies', component: MovieThumbnail},
+        {path: '/tv', name: 'tv', component: TVComponent, props: true},
+        
     ]
 });
 
@@ -44,6 +50,7 @@ const router = new VueRouter ({
             },
             authenticateuser(user) {
                 this.currentUser = user;
+                
             },
             gotouser(){
                

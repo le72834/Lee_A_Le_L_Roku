@@ -3,49 +3,60 @@ export default {
     template: ` 
     <div class="container">
         <div class="row">
-        <div class="col-12 col-sm-9 media-info">
-                <!-- genres for video -->
-               
-                <ul class="media-genres">
-                    <li>
-                        <a href="" @click.prevent="filterMedia('Action')" >Action</a>
-                    </li>
-                    <li>
-                        <a href="comedy">Comedy</a>
-                    </li>
-                    <li>
-                        <a href="family">Family</a>
-                    </li>
-                    <li>
-                        <a href="fantasyr">Fantasy</a>
-                    </li>
-                    <li>
-                        <a href="all">All</a>
-                    </li>
+        <div class="nav-link row fixed-top">
+                <ul>
+                    <li><router-link to="/allmovies">MOVIES</router-link> </li>
+                    <li> <router-link to="/audios">AUDIO</router-link></li>
+                    <li> <router-link to="/tv">TVSHOWS</router-link></li>
+            
                 </ul>
-               
-                
-
-
-                
-            </div>       
+            </div>
         </div>
+        <div class="music-box">
+            <div class="music-con">
+                    <img :src="'images/audio/' + currentMediaDetails.poster">
+                    
+            </div>
+                <div class="music-info">
+                    <h4 >{{currentMediaDetails.title}}</h4>
+                    <p >{{currentMediaDetails.artist}}</p>
+                    <audio autoplay controls muted :src="'audio/' + currentMediaDetails.audiosrc" class="fs-video"></audio>
+                    
+                </div>
+        </div>
+        <div class="thumb-wrapper clearfix music-pic">
+                    <!-- <moviecomponent v-for="item in retrievedMedia" :movie="item" :key="item.id" ></moviecomponent> -->
+                    <img v-for="media in retrievedMedia" :src="'images/audio/' + media.poster" alt="media thumb" class="img-thumbnail rounded float-left media-thumb" @click="switchCurrentMedia(media)">
+                </div>
     </div>
     
     `,
     data() {
         return {
-          
-            
-           
+            currentMediaDetails: {},
+            retrievedMedia: [],
+            filter: null
         }
     },
     created: function() {
-        
+        this.loadMusic(null);
         
         
     },
     methods: {
-        
+        loadMusic(filter){
+            let url = (filter == null) ? `api/audio` : `api/audio/${filter}`;
+            fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            this.retrievedMedia = data;
+            this.currentMediaDetails = data[Math.floor(Math.random() * data.length)];
+        })
+        .catch(err => console.log(err));
+        },
+        switchCurrentMedia(media) {
+            this.currentMediaDetails = media;
+        }
     }
 }
