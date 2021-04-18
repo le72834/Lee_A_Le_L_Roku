@@ -21,6 +21,7 @@ export default {
                 <p>You are now in TVShows page!</p>
                 </div>
             </div>
+            <h3 class="recommend">Recommend for you:</h3>
         <div class="row movie-con">
                 <div class="col-12 order-2 order-md-1 col-md-3 media-container movie-text">
                     <h4 class="media-title">{{currentMediaDetails.movies_title}}</h4>

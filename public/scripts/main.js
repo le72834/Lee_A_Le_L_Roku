@@ -44,9 +44,6 @@ const router = new VueRouter ({
                 }
                 this.$router.push({name: "root"});
                 this.currentUser = undefined;
-                if(localStorage.getItem("cachedVideo")){
-                    localStorage.removeItem("cachedVideo");
-                }
             },
             authenticateuser(user) {
                 this.currentUser = user;
