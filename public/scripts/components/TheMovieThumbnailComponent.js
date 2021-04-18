@@ -14,8 +14,16 @@ export default {
             
                 </ul>
             </div>
+            <div class="hero">
+                <img src="images/hero_movie.jpeg" alt="movie">
+                <div class="hero-text">
+                <h2>Welcome to Roku Flashback!</h2>
+                <p>You are now in movies page!</p>
+                </div>
+            </div>
         <div class="row movie-con">
-                <div class="col-12 order-2 order-md-1 col-md-3 media-container">
+            
+                <div class="col-12 order-2 order-md-1 col-md-3 media-container movie-text">
                     <h4 class="media-title">{{currentMediaDetails.movies_title}}</h4>
                     <p class="media-details" v-html="currentMediaDetails.movies_storyline"></p>
                     <span class="media-time">{{currentMediaDetails.movies_runtime}}</span>

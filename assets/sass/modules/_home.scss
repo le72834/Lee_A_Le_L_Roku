@@ -3,7 +3,7 @@
   color: rgb(95, 78, 94);
   font-weight: bold;
   left: 15%;
-  top: 20px;
+  top: 5px;
   
   
   ul {
@@ -45,6 +45,9 @@
     }
   }
  @media screen and (min-width: 1000px) {
+   .nav-link {
+     top: 20px;
+   }
     .hero-img {
       .home-info {
         margin-top: 80px;
@@ -63,6 +66,13 @@
     .home-pic {
       video {
         width: 100%;
+      }
+    }
+    .home-box {
+      text-align: center;
+      margin-left: 30px;
+      img {
+        width: 95%;
       }
     }
  } 

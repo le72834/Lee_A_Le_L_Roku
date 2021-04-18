@@ -32,7 +32,7 @@ export default {
             <div class="slider">
                 <h2>Your favourite channels all in one place.</h2>
             </div>
-            <div class="thumb-wrapper clearfix">
+            <div class="thumb-wrapper clearfix home-box">
             <img v-for="media in retrievedMedia" :src="'images/' + media.movies_cover" alt="media thumb" class="img-thumbnail rounded float-left media-thumb">
             </div>
     </div>
