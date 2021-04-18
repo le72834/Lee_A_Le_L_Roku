@@ -20,7 +20,7 @@ export default {
         </div>
             <div class="row hero-img">
                 <div class="col-12 order-1 order-md-2 col-md-9 media-container home-pic">
-                    <img src="images/movies.jpg">
+                    <video src="video/Deadpool.mp4"></video>
                 
                 </div>
                 <div class="col-12 order-2 order-md-1 col-md-3 media-container home-info">
